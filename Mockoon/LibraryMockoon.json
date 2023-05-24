@@ -1,0 +1,402 @@
+{
+  "uuid": "5e9bbd86-979f-4e19-8887-331b130836a6",
+  "lastMigration": 24,
+  "name": "LibraryMockoon",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "665519ec-5d7b-4d1b-aebd-f69914dc0353",
+      "documentation": "Return available categories",
+      "method": "get",
+      "endpoint": "categories",
+      "responses": [
+        {
+          "uuid": "30ea5a63-8174-4840-87e0-7947f38a7f13",
+          "body": "[{\r\n  \"id\": 1,\r\n  \"name\": \"Adventure\"\r\n},\r\n{  \r\n  \"id\":2,\r\n  \"name\": \"Romance\"\r\n},\r\n{\r\n  \"id\":3,\r\n  \"name\": \"Drama\"\r\n},\r\n{\r\n  \"id\":4,\r\n  \"name\": \"Fantasy\"\r\n},\r\n{\r\n  \"id\":5,\r\n  \"name\": \"Sci-Fi\"\r\n}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "b7985420-5777-4ecd-8363-57f37b774f62",
+          "body": "No Categories found",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "b146d6c8-ef1c-4961-b8b2-53a732eb532f",
+      "documentation": "Return books based on category ID",
+      "method": "get",
+      "endpoint": "books/category",
+      "responses": [
+        {
+          "uuid": "f222bc54-dff3-42d9-992d-32e8ef523bfb",
+          "body": "[{\r\n \"id\": 4,\r\n \"title\": \"Mysterious Island\",\r\n \"description\": \"incentivize open-source vortals\",\r\n \"price\": 55\r\n}, {\r\n \"id\": 7,\r\n \"title\": \"Man from Utah, The\",\r\n \"description\": \"envisioneer proactive action-items\",\r\n \"price\": 83\r\n}, {\r\n \"id\": 11,\r\n \"title\": \"Almost Heroes\",\r\n \"description\": \"redefine strategic vortals\",\r\n \"price\": 80\r\n}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Valid id 1",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "id",
+              "value": "1",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "61a4d848-2855-425e-b1b0-015fc3949cd3",
+          "body": "[{\r\n \"id\": 3,\r\n \"title\": \"Kelly & Cal\",\r\n \"description\": \"maximize plug-and-play infrastructures\",\r\n \"price\": 73\r\n}, {\r\n \"id\": 5,\r\n \"title\": \"Mooring, The\",\r\n \"description\": \"matrix 24/7 applications\",\r\n \"price\": 20\r\n}, {\r\n \"id\": 6,\r\n \"title\": \"Leap of Faith\",\r\n \"description\": \"envisioneer real-time action-items\",\r\n \"price\": 51\r\n}, {\r\n \"id\": 7,\r\n \"title\": \"Man from Utah, The\",\r\n \"description\": \"envisioneer proactive action-items\",\r\n \"price\": 83\r\n}, {\r\n \"id\": 11,\r\n \"title\": \"Almost Heroes\",\r\n \"description\": \"redefine strategic vortals\",\r\n \"price\": 80\r\n}, {\r\n \"id\": 12,\r\n \"title\": \"Sugarbaby\",\r\n \"description\": \"strategize cutting-edge schemas\",\r\n \"price\": 21\r\n}, {\r\n \"id\": 13,\r\n \"title\": \"The Pee-Wee Herman Show on Broadway\",\r\n \"description\": \"drive ubiquitous e-services\",\r\n \"price\": 58\r\n}, {\r\n \"id\": 14,\r\n \"title\": \"Big Daddy\",\r\n \"description\": \"seize B2B e-markets\",\r\n \"price\": 17\r\n}, {\r\n \"id\": 15,\r\n \"title\": \"Bad News Bears Go to Japan, The\",\r\n \"description\": \"iterate transparent communities\",\r\n \"price\": 61\r\n}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Valid id 2",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "id",
+              "value": "2",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "71bbf29b-6d75-4bb4-8552-14fdeb4d559e",
+          "body": "[{\r\n \"id\": 1,\r\n \"title\": \"Gabbeh\",\r\n \"description\": \"matrix wireless e-services\",\r\n \"price\": 24\r\n}, {\r\n \"id\": 2,\r\n \"title\": \"Ashes, The (Popioly)\",\r\n \"description\": \"recontextualize back-end experiences\",\r\n \"price\": 58\r\n}, {\r\n \"id\": 3,\r\n \"title\": \"Kelly & Cal\",\r\n \"description\": \"maximize plug-and-play infrastructures\",\r\n \"price\": 73\r\n},{\r\n \"id\": 6,\r\n \"title\": \"Leap of Faith\",\r\n \"description\": \"envisioneer real-time action-items\",\r\n \"price\": 51\r\n},{\r\n \"id\": 8,\r\n \"title\": \"The Party\",\r\n \"description\": \"deploy customized synergies\",\r\n \"price\": 66\r\n}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Valid id 3",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "id",
+              "value": "3",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "d7f2c6c0-af16-414a-b97e-b906169a38ff",
+          "body": "[{\r\n \"id\": 9,\r\n \"title\": \"How Hitler Lost the War\",\r\n \"description\": \"unleash extensible schemas\",\r\n \"price\": 45\r\n}, {\r\n \"id\": 10,\r\n \"title\": \"Science and Islam\",\r\n \"description\": \"facilitate back-end bandwidth\",\r\n \"price\": 44\r\n}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Valid id 4",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "id",
+              "value": "4",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "6801798b-b5fb-4861-9057-080d9669ee94",
+          "body": "[{\r\n \"id\": 4,\r\n \"title\": \"Mysterious Island\",\r\n \"description\": \"incentivize open-source vortals\",\r\n \"price\": 55\r\n}, {\r\n \"id\": 5,\r\n \"title\": \"Mooring, The\",\r\n \"description\": \"matrix 24/7 applications\",\r\n \"price\": 20\r\n}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Valid id 5",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "d034b93a-bb61-4233-a424-7c674d9fb39f",
+          "body": "ID must be numeric only",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "id is not numerical",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "id",
+              "value": "[^\\d]+",
+              "invert": false,
+              "operator": "regex"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "2f48aa7b-5c2d-4bdb-95e6-0487d8fadd80",
+          "body": "No ID provided",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "No id",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "id",
+              "value": "",
+              "invert": false,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "09c8ba6b-c891-4a80-b850-8b2fb26b796f",
+          "body": "ID not found",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Id does not exist",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "id",
+              "value": "^[12345]{1}$",
+              "invert": true,
+              "operator": "regex"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "9947ba04-527a-4303-bb8b-0f5d5047664c",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server Error",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "2e925455-29e3-4ed7-97a7-c349152770cb",
+      "documentation": "Endpoint for returning full list of books with stock",
+      "method": "get",
+      "endpoint": "books",
+      "responses": [
+        {
+          "uuid": "9e1720fe-68a5-45bb-9570-487edd4b9daa",
+          "body": "[{\r\n \"id\": 1,\r\n \"title\": \"Gabbeh\",\r\n \"description\": \"matrix wireless e-services\",\r\n \"price\": 24,\r\n \"categories\":[ \"3\"],\r\n \"quantity_stock\": 74\r\n}, {\r\n \"id\": 2,\r\n \"title\": \"Ashes, The (Popioly)\",\r\n \"description\": \"recontextualize back-end experiences\",\r\n \"price\": 58,\r\n \"categories\":[ \"3\",\"1\"],\r\n \"quantity_stock\": 84\r\n}, {\r\n \"id\": 3,\r\n \"title\": \"Kelly & Cal\",\r\n \"description\": \"maximize plug-and-play infrastructures\",\r\n \"price\": 73,\r\n \"categories\":[ \"2\",\"3\"],\r\n \"quantity_stock\": 71\r\n}, {\r\n \"id\": 4,\r\n \"title\": \"Mysterious Island\",\r\n \"description\": \"incentivize open-source vortals\",\r\n \"price\": 55,\r\n \"categories\":[ \"1\",\"5\"],\r\n \"quantity_stock\": 52\r\n}, {\r\n \"id\": 5,\r\n \"title\": \"Mooring, The\",\r\n \"description\": \"matrix 24/7 applications\",\r\n \"price\": 20,\r\n \"categories\":[ \"5\",\"2\"],\r\n \"quantity_stock\": 88\r\n}, {\r\n \"id\": 6,\r\n \"title\": \"Leap of Faith\",\r\n \"description\": \"envisioneer real-time action-items\",\r\n \"price\": 51,\r\n \"categories\":[ \"2\",\"3\"],\r\n \"quantity_stock\": 32\r\n}, {\r\n \"id\": 7,\r\n \"title\": \"Man from Utah, The\",\r\n \"description\": \"envisioneer proactive action-items\",\r\n \"price\": 83,\r\n \"categories\":[ \"1\",\"2\"],\r\n \"quantity_stock\": 40\r\n}, {\r\n \"id\": 8,\r\n \"title\": \"The Party\",\r\n \"description\": \"deploy customized synergies\",\r\n \"price\": 66,\r\n \"categories\":[ \"3\"],\r\n \"quantity_stock\": 61\r\n}, {\r\n \"id\": 9,\r\n \"title\": \"How Hitler Lost the War\",\r\n \"description\": \"unleash extensible schemas\",\r\n \"price\": 45,\r\n \"categories\":[ \"4\"],\r\n \"quantity_stock\": 73\r\n}, {\r\n \"id\": 10,\r\n \"title\": \"Science and Islam\",\r\n \"description\": \"facilitate back-end bandwidth\",\r\n \"price\": 44,\r\n \"categories\":[ \"4\"],\r\n \"quantity_stock\": 13\r\n}, {\r\n \"id\": 11,\r\n \"title\": \"Almost Heroes\",\r\n \"description\": \"redefine strategic vortals\",\r\n \"price\": 80,\r\n \"categories\":[ \"1\",\"2\"],\r\n \"quantity_stock\": 4\r\n}, {\r\n \"id\": 12,\r\n \"title\": \"Sugarbaby\",\r\n \"description\": \"strategize cutting-edge schemas\",\r\n \"price\": 21,\r\n \"categories\":[ \"2\"],\r\n \"quantity_stock\": 71\r\n}, {\r\n \"id\": 13,\r\n \"title\": \"The Pee-Wee Herman Show on Broadway\",\r\n \"description\": \"drive ubiquitous e-services\",\r\n \"price\": 58,\r\n \"categories\":[ \"2\"],\r\n \"quantity_stock\": 100\r\n}, {\r\n \"id\": 14,\r\n \"title\": \"Big Daddy\",\r\n \"description\": \"seize B2B e-markets\",\r\n \"price\": 17,\r\n \"categories\":[ \"2\"],\r\n \"quantity_stock\": 61\r\n}, {\r\n \"id\": 15,\r\n \"title\": \"Bad News Bears Go to Japan, The\",\r\n \"description\": \"iterate transparent communities\",\r\n \"price\": 61,\r\n \"categories\":[ \"2\"],\r\n \"quantity_stock\": 27\r\n}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "d4f0574a-5c22-43d0-be7a-e6bb162dbf56",
+          "body": "No Books found",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "4ef70077-bae4-4876-8627-1110a146259f",
+      "documentation": "Endpoint for placing an order",
+      "method": "get",
+      "endpoint": "order",
+      "responses": [
+        {
+          "uuid": "b034d565-0d87-441d-8ad8-79b46c5566c3",
+          "body": "\"book 6: Bookname\" is unavailable.",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Stock quantity 0",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "basket",
+              "value": "6",
+              "invert": false,
+              "operator": "regex"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "a8320c3d-197d-4709-896a-ca83bca0808d",
+          "body": "Your order has been placed.",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Order successful",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}
